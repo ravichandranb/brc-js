@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="width: 200px; margin: auto; text-align: center">
+      <p style="color: red">Factorial of a number</p>
+
+      <input
+        type="text"
+        id="test"
+        value=""
+        placeholder="Enter a valid number "
+      />
+      <br />
+      <br />
+
+      <button type="submit" onclick="fnct()">Click to Get the Factorial</button>
+
+      <p id="target" style="color: red"></p>
+      <button type="submit" onclick="fnctClear()">Clear</button>
+    </div>
+
+    <script>
+      function fnct() {
+        var n1 = document.getElementById("test").value;
+        var n2 = n1;
+
+        if (isNaN(n1) || !n1) {
+          document.getElementById("target").innerHTML = "Enter valid number";
+        } else {
+          while (n2 > 1) {
+            n1 = n1 * (n2 - 1);
+
+            n2--;
+          }
+
+          document.getElementById("target").innerHTML = n1;
+        }
+      }
+      function fnctClear() {
+        document.getElementById("target").innerHTML = " ";
+        document.getElementById("test").value = " ";
+      }
+    </script>
+  </body>
+</html>
