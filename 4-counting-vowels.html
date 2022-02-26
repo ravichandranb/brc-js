@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <h3>Counting vowels inside a word</h3>
+      <input type="text" id="text1" placeholder="Enter the word here" />
+      <br /><br />
+      <p>
+        Number of vowel =&nbsp;<span
+          id="result1"
+          style="color: red; border: 1px solid red"
+          >__</span
+        >
+      </p>
+      <button id="btn1" onclick="vowelCounter()">
+        Click to count the vowels
+      </button>
+      <br />
+      <br />
+      <button id="clearForm" onclick="clearFunction()">Clear</button>
+      <br />
+      <br />
+    </div>
+
+    <script>
+      var string1;
+      var length1;
+      var count;
+      var zArray = [];
+      var vowels;
+
+      function vowelCounter() {
+        string1 = document.querySelector("#text1").value;
+        length1 = string1.length;
+        vowels = 0;
+        if (!string1 || !isNaN(string1)) {
+          alert("Enter valid words inside textb box");
+        }
+        for (count = 0; count <= length1; count++) {
+          zArray[count] = string1.slice(count, count + 1);
+          if (
+            zArray[count] === "a" ||
+            zArray[count] === "A" ||
+            zArray[count] === "e" ||
+            zArray[count] === "E" ||
+            zArray[count] === "i" ||
+            zArray[count] === "I" ||
+            zArray[count] === "o" ||
+            zArray[count] === "O" ||
+            zArray[count] === "u" ||
+            zArray[count] === "U"
+          ) {
+            vowels++;
+          }
+        }
+
+        document.querySelector("#result1").innerHTML = "_" + vowels + "_";
+      }
+      function clearFunction() {
+        document.querySelector("#text1").value = "";
+
+        document.querySelector("#result1").innerHTML = "__";
+      }
+    </script>
+  </body>
+</html>

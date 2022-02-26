@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonachchi Series</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <p>Fibonachchi Series..</p>
+      <input
+        type="text"
+        id="textt1"
+        placeholder="Enter the first number"
+        value=""
+      />
+      <br />
+      <br />
+      <input
+        type="text"
+        id="textt2"
+        placeholder="Enter the second number"
+        value=""
+      />
+
+      <br />
+      <br />
+      <input
+        type="text"
+        id="textt3"
+        placeholder="Enter the last number"
+        value=""
+      />
+
+      <br />
+      <br />
+      <button type="submit" id="btnn">Click for the Fibonachchi Series</button>
+      <br />
+      <br />
+
+      <p id="targett" style="display: inline; border: 1px solid red">_______</p>
+      <br />
+      <br />
+      <br />
+
+      <button type="submit" id="btnn2">Clear</button>
+      <br />
+      <br />
+    </div>
+
+    <script>
+      var tempp1;
+      var tempp2;
+      var tempp3;
+      var tempp4;
+      var tempp5;
+      var count;
+      var zArray = [];
+      document.querySelector("#btnn").addEventListener("click", () => {
+        tempp1 = parseInt(document.querySelector("#textt1").value);
+        tempp2 = parseInt(document.querySelector("#textt2").value);
+        tempp3 = parseInt(document.querySelector("#textt3").value);
+        if (isNaN(tempp1) || isNaN(tempp2) || isNaN(tempp3)) {
+          alert("check");
+        }
+        zArray[0] = tempp1;
+        zArray[1] = tempp2;
+        tempp4 = tempp1 + tempp2;
+
+        for (count = 2; count <= tempp3; count++) {
+          zArray[count] = tempp4;
+
+          tempp1 = tempp2;
+
+          tempp2 = tempp4;
+
+          tempp4 = tempp1 + tempp2;
+        }
+
+        document.querySelector("#targett").innerHTML = zArray;
+      });
+
+      document.querySelector("#btnn2").addEventListener("click", () => {
+        document.querySelector("#targett").innerHTML = "_______";
+        document.querySelector("#textt1").value = "";
+        document.querySelector("#textt2").value = "";
+        document.querySelector("#textt3").value = "";
+      });
+    </script>
+  </body>
+</html>

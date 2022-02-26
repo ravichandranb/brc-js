@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Splitting</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <p>Find sum of n + n/2 + n/4 + .....</p>
+      <input
+        type="number"
+        id="textt1"
+        placeholder="Enter the number 'n'"
+        value=""
+      />
+      <br />
+      <br />
+      <input
+        type="number"
+        rows="1"
+        cols="20"
+        id="textt2"
+        placeholder="Enter the denominator limit"
+        value=""
+      />
+      <br />
+      <br />
+      <button type="submit" id="btnn">Click for the result</button>
+      <br />
+      <br />
+
+      <p id="targett" style="display: inline; border: 1px solid red">_______</p>
+      <br />
+      <br />
+      <br />
+
+      <button type="submit" id="btnn2">Clear</button>
+      <br />
+      <br />
+    </div>
+
+    <script>
+      var numbb;
+      var numbb1;
+      var tempp;
+
+      var tempp1;
+      document.querySelector("#btnn").addEventListener("click", () => {
+        numbb = document.querySelector("#textt1").value;
+        numbb = parseInt(numbb);
+
+        tempp = numbb;
+        tempp = parseFloat(tempp);
+
+        numbb1 = document.querySelector("#textt2").value;
+        numbb1 = parseInt(numbb1);
+        if (isNaN(numbb) || isNaN(numbb1)) {
+          alert("Enter Valid Number in boxes");
+        }
+
+        for (count = 2; count <= numbb1; count = count + 2) {
+          tempp = parseFloat(tempp) + numbb / count;
+        }
+        console.log(tempp);
+        document.querySelector("#targett").innerHTML = tempp;
+      });
+      document.querySelector("#btnn2").addEventListener("click", () => {
+        document.querySelector("#targett").innerHTML = "_______";
+        document.querySelector("#textt1").value = "";
+        document.querySelector("#textt2").value = "";
+      });
+    </script>
+  </body>
+</html>

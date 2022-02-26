@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome</title>
+  </head>
+  <body>
+    <div
+      style="
+        border: 1px solid red;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        height: 200px;
+        padding: 5%;
+      "
+    >
+      <input type="text" id="string1" placeholder="Enter The String" />
+      <br /><br />
+
+      <button type="button" id="palindromeFunction">
+        Click for Palindrome
+      </button>
+      <br /><br />
+
+      <button type="button" id="clearFunction">Clear</button>
+
+      <p>
+        Palindrome of the given string is &nbsp;=&nbsp;<span
+          id="target1"
+          style="color: red"
+          >&nbsp;</span
+        >
+      </p>
+
+      <br />
+      <br />
+    </div>
+    <script>
+      var tempp1;
+      var tempp2;
+      var tempp3;
+      var tempp4;
+      var zArray = [];
+      var count;
+
+      document
+        .querySelector("#palindromeFunction")
+        .addEventListener("click", () => {
+          if (!document.querySelector("#string1").value) {
+            alert("Enter a valid string");
+          }
+          document.querySelector("#target1").innerText = " ";
+          tempp1 = document.querySelector("#string1").value;
+          tempp2 = tempp1.length;
+          tempp3 = tempp2;
+          count = 1;
+          while (count <= tempp2) {
+            zArray[tempp3 - count] = tempp1.substring(0, 1);
+            tempp1 = tempp1.slice(1, tempp3);
+
+            count++;
+          }
+
+          tempp4 = zArray.toString();
+
+          tempp3 = tempp2;
+
+          count = 1;
+          while (count <= tempp2) {
+            document.querySelector("#target1").innerText =
+              document.querySelector("#target1").innerText + zArray[count - 1];
+            count++;
+          }
+        });
+      document.querySelector("#clearFunction").addEventListener("click", () => {
+        document.querySelector("#string1").value = "";
+        document.querySelector("#target1").innerText = "";
+      });
+    </script>
+  </body>
+</html>

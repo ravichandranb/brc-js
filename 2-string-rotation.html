@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRACTICAL SESSION - 13-FEB-2022</title>
+  </head>
+  <body>
+    <div
+      style="
+        border: 1px solid red;
+        text-align: center;
+        width: 60%;
+        margin: auto;
+        height: 200px;
+        padding: 5%;
+      "
+    >
+      <input type="text" id="string1" placeholder="Enter The String" />
+      <br /><br />
+
+      <button type="button" id="btn1" onclick="stringFunction()">
+        Click for rotation
+      </button>
+
+      <button type="button" id="btn2" onclick="stopFunction()">
+        Stop rotation
+      </button>
+
+      <p id="target1">________</p>
+
+      <br />
+      <br />
+    </div>
+    <script>
+      var timer1;
+      function stringFunction() {
+        var x = document.getElementById("string1").value;
+        if (!x == "") {
+          timer1 = setInterval(() => {
+            document.getElementById("target1").innerHTML =
+              x.substring(1) + x.slice(0, 1);
+
+            x = x.substring(1) + x.slice(0, 1);
+          }, 1000);
+        } else {
+          alert("Enter a Valid string");
+        }
+      }
+      function stopFunction() {
+        clearInterval(timer1);
+        document.getElementById("string1").value = "";
+        document.getElementById("target1").innerHTML = "_____";
+      }
+    </script>
+  </body>
+</html>

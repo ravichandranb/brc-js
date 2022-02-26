@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pattern Generator-2</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <p>Pattern 2 Generator</p>
+      <!-- <input type="text" id="textt1" value="" /> -->
+      <textarea
+        id="textt1"
+        cols="40"
+        rows="1"
+        placeholder="Enter the number of pattern rows required"
+      ></textarea>
+      <br />
+      <br />
+
+      <button type="submit" id="btnn">Click for pattern generation</button>
+      <br />
+      <br />
+
+      <br />
+
+      <button type="submit" id="btnn2">Clear</button>
+      <br />
+      <br />
+      <div id="tableDiv" style="width: 50%; margin: auto"></div>
+    </div>
+
+    <script>
+      var tempp1;
+      var tempp2;
+      var tempp3;
+      var tempp4;
+
+      var count = 0;
+      var count1 = 0;
+
+      var table1;
+      document.querySelector("#btnn").addEventListener("click", () => {
+        tempp1 = parseInt(document.querySelector("#textt1").value);
+
+        tempp2 = parseInt(tempp1) / 2;
+        tempp4 = tempp2.toFixed();
+        tempp2 = Math.floor(tempp2);
+
+        if (tempp1 !== "" && !isNaN(tempp1)) {
+          table1 = "<table>";
+
+          for (count = 0; count < tempp2; count++) {
+            table1 += "<tr>";
+
+            for (count1 = 0; count1 < tempp1 + 2; count1++) {
+              if (
+                tempp2 - count - count1 == 0 ||
+                parseInt(tempp2) + parseInt(count) - count1 == 0
+              ) {
+                table1 += "<td>" + "V" + "</td>";
+              } else {
+                table1 += "<td>" + "" + "</td>";
+              }
+            }
+
+            table1 += "</tr>";
+          }
+          if (tempp4 > tempp2) {
+            table1 += "<tr>";
+            for (count1 = 1; count1 <= tempp1; count1++) {
+              if (count1 == 1 || count1 == tempp1) {
+                table1 += "<td>" + "V" + "</td>";
+              } else {
+                table1 += "<td>" + " " + "</td>";
+              }
+            }
+            table1 += "</tr>";
+          }
+          for (count = tempp2 - 1; count >= 0; count--) {
+            table1 += "<tr>";
+
+            for (count1 = 0; count1 < tempp1 + 2; count1++) {
+              if (
+                tempp2 - (parseInt(count) + parseInt(count1)) == 0 ||
+                parseInt(tempp2) + parseInt(count) - count1 == 0
+              ) {
+                table1 += "<td>" + "V" + "</td>";
+              } else {
+                table1 += "<td>" + "" + "</td>";
+              }
+            }
+
+            table1 += "</tr>";
+          }
+
+          table1 += "</table>";
+          document.querySelector("#tableDiv").innerHTML =
+            "Pattern" + "<br>" + "</br>" + table1;
+        } else {
+          alert("enter valid number");
+        }
+      });
+
+      document.querySelector("#btnn2").addEventListener("click", () => {
+        document.querySelector("#tableDiv").innerHTML = "";
+        document.querySelector("#textt1").value = "";
+      });
+    </script>
+  </body>
+</html>

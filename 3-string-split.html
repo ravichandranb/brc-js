@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Splitting</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <p>String Modification</p>
+      <input type="text" id="text1" placeholder="Enter the string" value="" />
+      <br />
+      <br />
+      <input
+        type="text"
+        rows="1"
+        cols="20"
+        id="text2"
+        placeholder="Char-position to be removed"
+        value=""
+      />
+      <br />
+      <br />
+      <button type="submit" onclick="fnctText()">Click for new string</button>
+      <br />
+      <br />
+
+      <p id="target" style="display: inline; border: 1px solid red"></p>
+      <br />
+      <br />
+      <br />
+
+      <button type="submit" onclick="fnctClear()">Clear</button>
+      <br />
+      <br />
+    </div>
+
+    <script>
+      function fnctText() {
+        var orgText = document.getElementById("text1").value;
+        var position = document.getElementById("text2").value;
+        if (!orgText || isNaN(position) || position > orgText.length) {
+          alert(
+            "Check: Valid text is entered in box1. Valid number is entered in box2. Number entered in box2 is not more than the string length"
+          );
+        } else {
+          var new1 = orgText.slice(0, position);
+
+          var newLength = new1.length;
+
+          var newNew = new1.slice(0, newLength - 1);
+
+          var new2 = orgText.substring(position);
+
+          var new3 = newNew + new2;
+
+          document.getElementById("target").innerHTML = new3;
+        }
+      }
+      function fnctClear() {
+        document.getElementById("target").innerHTML = "";
+        document.getElementById("text1").value = "";
+        document.getElementById("text2").value = "";
+      }
+    </script>
+  </body>
+</html>

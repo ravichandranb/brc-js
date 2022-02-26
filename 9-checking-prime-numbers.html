@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding Prime Numbers</title>
+  </head>
+  <body>
+    <div
+      style="
+        border: 1px solid red;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        height: 200px;
+        padding: 5%;
+      "
+    >
+      <input type="text" id="numberr" placeholder="Enter The Number" />
+      <br /><br />
+
+      <button type="button" id="primeFunction">
+        Click to check if the number is prime number or not
+      </button>
+      <br /><br />
+
+      <button type="button" id="clearFunction">Clear</button>
+
+      <p>
+        Is the number entered is Prime Number or Consonant? &nbsp;&nbsp;<span
+          id="target1"
+          style="color: red"
+          >&nbsp;</span
+        >
+      </p>
+
+      <br />
+      <br />
+    </div>
+    <script>
+      var tempp1;
+      var tempp2;
+      var tempp3;
+      var tempp4;
+      var zArray = [];
+      var count;
+
+      document.querySelector("#primeFunction").addEventListener("click", () => {
+        if (
+          !document.querySelector("#numberr").value ||
+          isNaN(document.querySelector("#numberr").value)
+        ) {
+          alert("Enter a valid number");
+        }
+        document.querySelector("#target1").innerText = " ";
+
+        count = 1;
+
+        do {
+          count++;
+
+          tempp1 = document.querySelector("#numberr").value;
+        } while (
+          document.querySelector("#numberr").value % count != 0 &&
+          count < tempp1 &&
+          !isNaN(document.querySelector("#numberr").value)
+        );
+        if (
+          count >= tempp1 &&
+          document.querySelector("#numberr").value !== ""
+        ) {
+          document.querySelector("#target1").innerText =
+            " Yes .. the number is a Prime number";
+        } else if (
+          document.querySelector("#numberr").value % count == 0 &&
+          document.querySelector("#numberr").value !== ""
+        ) {
+          document.querySelector("#target1").innerText =
+            "No.. the number entered is a consonant";
+        }
+        if (
+          document.querySelector("#numberr").value == "" ||
+          isNaN(document.querySelector("#numberr").value)
+        ) {
+          document.querySelector("#target1").innerText =
+            "Click 'Clear' and Enter a Valid Number";
+        }
+      });
+      document.querySelector("#clearFunction").addEventListener("click", () => {
+        document.querySelector("#numberr").value = "";
+        document.querySelector("#target1").innerText = "";
+      });
+    </script>
+  </body>
+</html>

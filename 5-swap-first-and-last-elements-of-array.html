@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 500px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid red;
+      "
+    >
+      <h3>Swapping first and last elements in an Array</h3>
+      <br />
+      <br />
+      <button id="creatFunction">Click for creating a random array</button>
+      <br />
+      <br />
+      <p>Array &nbsp; = &nbsp;<span id="testt">[ _ _ _ _ ]</span></p>
+      <br />
+
+      <button id="swapFunction">Click to swap extreme position elements</button>
+      <br />
+      <br />
+      <button id="clearFunction">Clear</button>
+      <br />
+      <br />
+    </div>
+
+    <script>
+      var zArray = [];
+      var temp;
+      var temp1;
+      document.querySelector("#creatFunction").addEventListener("click", () => {
+        for (indexx = 0; indexx < 4; indexx++) {
+          temp = Math.random() * 100;
+          temp = temp.toFixed();
+
+          zArray[indexx] = temp;
+        }
+
+        document.querySelector("#testt").innerHTML = "[" + zArray + "]";
+      });
+      document.querySelector("#swapFunction").addEventListener("click", () => {
+        temp1 = zArray[0];
+        zArray[0] = zArray[3];
+        zArray[3] = temp1;
+
+        document.querySelector("#testt").innerHTML = "[" + zArray + "]";
+      });
+      document.querySelector("#clearFunction").addEventListener("click", () => {
+        document.querySelector("#testt").innerHTML = "[ _ _ _ _ ]";
+      });
+    </script>
+  </body>
+</html>

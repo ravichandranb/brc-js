@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        border: 1px solid red;
+        padding: 5%;
+
+        text-align: center;
+      "
+    >
+      <input type="text" id="rows" value="" placeholder="Enter no. of rows" />
+
+      <input type="text" id="cols" placeholder="Enter no. of columns" />
+      <br />
+      <br />
+      <button id="btn1" onclick="tableCreation()">
+        Click for table creation
+      </button>
+      <p id="rows1"></p>
+      <div id="table-div" align="center"></div>
+      <br />
+      <button type="reset" onclick="resetFunction()">Reset</button>
+    </div>
+
+    <script>
+      var rows;
+      var cols;
+
+      function tableCreation() {
+        rows = document.querySelector("#rows").value;
+        cols = document.querySelector("#cols").value;
+        if (!rows || !cols || isNaN(rows) || isNaN(cols)) {
+          alert("Enter valid numbers for row & column counts");
+        }
+        output = "<table border = '1'>";
+
+        for (r = 1; r <= rows; r++) {
+          output += "<tr>";
+
+          for (c = 1; c <= cols; c++) {
+            output += "<td>" + "cell" + "</td>";
+          }
+        }
+        output += "</table>";
+        document.querySelector("#table-div").innerHTML = output;
+      }
+      function resetFunction() {
+        document.querySelector("#table-div").innerHTML = "";
+        document.querySelector("#rows").value = "";
+        document.querySelector("#cols").value = "";
+      }
+    </script>
+  </body>
+</html>
